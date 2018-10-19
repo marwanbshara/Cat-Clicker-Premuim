@@ -14,18 +14,17 @@
         <h4>Cat Clicker</h4>
         <div id="main"></div>
         </div>
-        <div class="dialog">
-            <dialog id="adminDialog">
-                <form method='dialog' id='formDial'>
-                    <p><label>Name: <input type='text' id='newName' name='uname' minlength='1' maxlength='8'></label>
-                    </p>
-                    <p><label>ImgURL: <input type='text' id='imgUrl' name='imageUrl'></label></p>
-                    <p><label>Clicks: <input type='number' id='updateClicks' min='0' ></label>
-                    </p>
-                    <button id='cancel'>Cancel</button> 
-                    <button id='updateCat'>Confirm</button>
-                </form> 
-            </dialog>
+        <div class="dialog" id='adminDialog' style='display: none;'>
+            <div class="dialog-content">
+                <p><label>Name: <input type='text' id='newName' name='uname' minlength='1' maxlength='8'></label>
+                </p>
+                <p><label>ImgURL: <input type='text' id='imgUrl' name='imageUrl'></label>
+                </p>
+                <p><label>Clicks: <input type='number' id='updateClicks' min='0' ></label>
+                </p>
+                <button id='cancel'>Cancel</button> 
+                <button id='updateCat'>Confirm</button>
+            </div>
         </div>
         
         <script  type="text/javascript" src="catApp.js"></script>

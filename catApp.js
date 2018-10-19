@@ -100,10 +100,8 @@ var octopus = {
         //itterate over the array to add eventListener to each button so it can show the dialog box
         buttonsArray.forEach( function(btn){
             btn.addEventListener('click', function(e){
-            let admnDialog = document.getElementById('adminDialog');
-                
                 octopus.updatecurrentAdmin(e);
-                admnDialog.showModal();
+                view.showDialog();
             });
         });
     },
@@ -191,6 +189,16 @@ var view = {
         }
     },
     
+    showDialog: function(){
+        let dialog = document.getElementById('adminDialog')
+        if (dialog.style.display == 'none') {
+            dialog.style.display = '';
+        } else {
+            dialog.style.display = 'none';
+        }
+        
+    },
+    
     
     // view model bulding the nav bar side
     //function that adds cats to the navbar
@@ -214,22 +222,19 @@ var view = {
     //function creates the dialog to the admin in order to update the cat viewed
     createDialog: function(){
         
-       /* let dialog = "<p><label>Name: <input type='text' id='newName' name='uname' minlength='1' maxlength='8'></label></p><p><label>ImgURL: <input type='text' id='imgUrl' name='imageUrl'></label></p><p><label>Clicks: <input type='number' id='updateClicks' min='0' ></label></p><button id='cancel'>Cancel</button> <button id='updateCat'>Confirm</button>";
-        
-        //inserting the dialog into the html using inserAdjacentHTML
-        let d1 = document.getElementById('formDial');
-        //d1.insertAdjacentHTML('afterbegin',dialog);
-        d1.innerHTML = dialog;*/
-        //calling the octopus to add eventlisetenr to the admin button
         octopus.adminListener();
         view.dialogListener();
     },
     
      dialogListener: function(){
+         
+         document.getElementById('cancel').addEventListener('click', function(){
+             view.showDialog();
+         })
         
         document.getElementById('updateCat').addEventListener('click', function(){
-            let currentCat = document.getElementsByClassName('buttonAdminP')
             octopus.updateModel();
+            view.showDialog();
         });
         
     }
